@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- Wedding Vows Generator Sitemap -->
+
+<!-- Main Pages -->
+<url>
+  <loc>https://ai-wedding-vows-examples.momo-test.com/</loc>
+  <lastmod>2025-10-26T00:00:00+00:00</lastmod>
+  <priority>1.00</priority>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://ai-wedding-vows-examples.momo-test.com/index.html</loc>
+  <lastmod>2025-10-26T00:00:00+00:00</lastmod>
+  <priority>1.00</priority>
+  <changefreq>weekly</changefreq>
+</url>
+
+<!-- Navigation Pages -->
+<url>
+  <loc>https://ai-wedding-vows-examples.momo-test.com/examples.html</loc>
+  <lastmod>2025-10-26T00:00:00+00:00</lastmod>
+  <priority>0.95</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://ai-wedding-vows-examples.momo-test.com/blog.html</loc>
+  <lastmod>2025-10-26T00:00:00+00:00</lastmod>
+  <priority>0.90</priority>
+  <changefreq>weekly</changefreq>
+</url>
+
+<!-- Blog Articles -->
+<url>
+  <loc>https://ai-wedding-vows-examples.momo-test.com/blog/what-are-wedding-vows.html</loc>
+  <lastmod>2025-10-26T00:00:00+00:00</lastmod>
+  <priority>0.85</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://ai-wedding-vows-examples.momo-test.com/blog/what-are-the-wedding-vows.html</loc>
+  <lastmod>2025-10-26T00:00:00+00:00</lastmod>
+  <priority>0.85</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://ai-wedding-vows-examples.momo-test.com/blog/how-to-write-wedding-vows.html</loc>
+  <lastmod>2025-10-26T00:00:00+00:00</lastmod>
+  <priority>0.85</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://ai-wedding-vows-examples.momo-test.com/blog/how-to-write-wedding-vows-groom.html</loc>
+  <lastmod>2025-10-26T00:00:00+00:00</lastmod>
+  <priority>0.85</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://ai-wedding-vows-examples.momo-test.com/blog/how-to-write-vows-for-a-wedding.html</loc>
+  <lastmod>2025-10-26T00:00:00+00:00</lastmod>
+  <priority>0.85</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://ai-wedding-vows-examples.momo-test.com/blog/how-do-i-write-wedding-vows.html</loc>
+  <lastmod>2025-10-26T00:00:00+00:00</lastmod>
+  <priority>0.85</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://ai-wedding-vows-examples.momo-test.com/blog/how-to-start-wedding-vows.html</loc>
+  <lastmod>2025-10-26T00:00:00+00:00</lastmod>
+  <priority>0.85</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://ai-wedding-vows-examples.momo-test.com/blog/how-long-should-wedding-vows-be.html</loc>
+  <lastmod>2025-10-26T00:00:00+00:00</lastmod>
+  <priority>0.85</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://ai-wedding-vows-examples.momo-test.com/blog/has-anyone-used-ai-to-write-wedding-vows.html</loc>
+  <lastmod>2025-10-26T00:00:00+00:00</lastmod>
+  <priority>0.85</priority>
+  <changefreq>monthly</changefreq>
+</url>
+
+<!-- Legal Pages -->
+<url>
+  <loc>https://ai-wedding-vows-examples.momo-test.com/privacy-policy.html</loc>
+  <lastmod>2025-10-26T00:00:00+00:00</lastmod>
+  <priority>0.60</priority>
+  <changefreq>yearly</changefreq>
+</url>
+<url>
+  <loc>https://ai-wedding-vows-examples.momo-test.com/terms-and-conditions.html</loc>
+  <lastmod>2025-10-26T00:00:00+00:00</lastmod>
+  <priority>0.60</priority>
+  <changefreq>yearly</changefreq>
+</url>
+
+</urlset>

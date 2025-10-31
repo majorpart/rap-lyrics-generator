@@ -1,0 +1,51 @@
+User-agent: *
+Allow: /
+Allow: /assets/
+Allow: /js/
+Allow: /api/
+Allow: /blog/
+
+# 禁止抓取广告和跟踪脚本
+Disallow: /ads/
+Disallow: /*.ads
+Disallow: /tracking/
+
+# 禁止抓取临时文件和缓存
+Disallow: /tmp/
+Disallow: /cache/
+Disallow: /*.tmp
+Disallow: /*.log
+
+# Sitemaps
+Sitemap: https://ai-wedding-vows-examples.momo-test.com/sitemap.xml
+
+# 优化爬取频率
+Crawl-delay: 1
+
+# 特别允许Googlebot访问所有重要资源
+User-agent: Googlebot
+Allow: /
+Allow: /assets/
+Allow: /js/
+Allow: /api/
+Allow: /blog/
+Allow: /examples.html
+Allow: /blog.html
+Allow: /privacy-policy.html
+Allow: /terms-and-conditions.html
+
+# 允许Bingbot访问
+User-agent: Bingbot
+Allow: /
+Allow: /assets/
+Allow: /js/
+Allow: /api/
+Allow: /blog/
+
+# 允许百度爬虫访问
+User-agent: Baiduspider
+Allow: /
+Allow: /assets/
+Allow: /js/
+Allow: /api/
+Allow: /blog/

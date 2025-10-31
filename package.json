@@ -1,0 +1,32 @@
+{
+  "name": "ai-wedding-vows-generator",
+  "version": "1.0.0",
+  "description": "AI Wedding Vows Generator - Create personalized wedding vows with AI for your special day",
+  "main": "index.html",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "echo 'No build step required'",
+    "dev": "node server.js",
+    "start": "node server.js",
+    "vercel-dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  },
+  "keywords": [
+    "ai",
+    "wedding-vows",
+    "wedding",
+    "marriage",
+    "ceremony",
+    "vows-generator",
+    "wedding-planning",
+    "personalized-vows"
+  ],
+  "author": "AI Wedding Vows Generator Team",
+  "license": "MIT"
+}
