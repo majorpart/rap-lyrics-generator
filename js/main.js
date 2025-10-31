@@ -1,5 +1,5 @@
-// AI Wedding Vows Generator - Main JavaScript File
-class WeddingVowsApp {
+// AI Rap Lyrics Generator - Main JavaScript File
+class RapLyricsApp {
     constructor() {
         this.isGenerating = false;
         this.apiUrl = '/api/generate-prompt';
@@ -26,7 +26,7 @@ class WeddingVowsApp {
 
     // Setup Form Input Listeners
     setupFormInputListeners() {
-        const form = document.getElementById('weddingVowsForm');
+        const form = document.getElementById('rapLyricsForm');
         if (form) {
             const inputs = form.querySelectorAll('input, textarea');
             inputs.forEach(input => {
@@ -47,7 +47,7 @@ class WeddingVowsApp {
 
     // Validate Form
     validateForm() {
-        const form = document.getElementById('weddingVowsForm');
+        const form = document.getElementById('rapLyricsForm');
         if (!form) return;
 
         const topic = form.querySelector('#topic')?.value.trim();
@@ -130,7 +130,7 @@ class WeddingVowsApp {
         if (generateBtn) {
             generateBtn.addEventListener('click', () => {
                 if (this.validateForm() && !this.isGenerating) {
-                    this.generateWeddingVows();
+                    this.generateRapLyrics();
                 }
             });
         }
@@ -151,7 +151,7 @@ class WeddingVowsApp {
     }
 
     // Generate Rap Lyrics
-    async generateWeddingVows() {
+    async generateRapLyrics() {
         if (this.isGenerating) {
             return;
         }
@@ -165,7 +165,7 @@ class WeddingVowsApp {
             const formData = this.collectFormData();
             const lyrics = await this.callAPI(formData);
             this.completeProgress();
-            this.displayVows(lyrics);
+            this.displayLyrics(lyrics);
             
             this.isGenerating = false;
             this.updateGenerateButton(true);
@@ -182,7 +182,7 @@ class WeddingVowsApp {
 
     // Collect Form Data
     collectFormData() {
-        const form = document.getElementById('weddingVowsForm');
+        const form = document.getElementById('rapLyricsForm');
         const formData = new FormData(form);
         
         return {
@@ -253,8 +253,8 @@ class WeddingVowsApp {
     }
 
     // Display Generated Lyrics
-    displayVows(lyrics) {
-        const vowsDisplay = document.getElementById('vowsDisplay');
+    displayLyrics(lyrics) {
+        const vowsDisplay = document.getElementById('lyricsDisplay');
         const copyBtn = document.getElementById('copyBtn');
         
         if (vowsDisplay) {
@@ -434,7 +434,7 @@ class WeddingVowsApp {
     showLoading() {
         const progressContainer = document.getElementById('progressContainer');
         const progressBar = document.getElementById('progressBar');
-        const buttonText = document.getElementById('buttonText');
+        const buttonText = document.getElementById('generateButtonText');
         const generateBtn = document.getElementById('generateBtn');
         
         // Show progress bar above button
@@ -465,7 +465,7 @@ class WeddingVowsApp {
     // Hide Loading
     hideLoading() {
         const progressContainer = document.getElementById('progressContainer');
-        const buttonText = document.getElementById('buttonText');
+        const buttonText = document.getElementById('generateButtonText');
         const generateBtn = document.getElementById('generateBtn');
         
         // Hide progress bar
@@ -494,7 +494,7 @@ class WeddingVowsApp {
         if (generateBtn) {
             // Check if button has the correct structure
             const progressContainer = generateBtn.querySelector('#progressContainer');
-            const buttonText = generateBtn.querySelector('#buttonText');
+            const buttonText = generateBtn.querySelector('#generateButtonText');
             
             if (!progressContainer || !buttonText) {
                 // Restore complete button structure
@@ -502,11 +502,11 @@ class WeddingVowsApp {
                     <!-- Progress Bar Inside Button -->
                     <div id="progressContainer" class="w-full mb-2 hidden">
                         <div class="w-full bg-gray-600 rounded-full h-1">
-                            <div id="progressBar" class="bg-gradient-to-r from-orange-500 to-orange-400 h-1 rounded-full transition-all duration-300 ease-out" style="width: 0%"></div>
+                            <div id="progressBar" class="bg-gradient-to-r from-purple-600 to-purple-500 h-1 rounded-full transition-all duration-300 ease-out" style="width: 0%"></div>
                         </div>
                     </div>
                     
-                    <span id="buttonText">Generate Rap Lyrics</span>
+                    <span id="generateButtonText">Generate Rap Lyrics</span>
                 `;
             }
         }
@@ -591,7 +591,7 @@ class WeddingVowsApp {
 
 // Initialize the application when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    window.weddingVowsApp = new WeddingVowsApp();
+    window.rapLyricsApp = new RapLyricsApp();
 });
 
 // Handle page visibility change

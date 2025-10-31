@@ -11,17 +11,16 @@
 
 #### 修改内容：
 1. **API 路由保持不变**：`/api/generate-prompt`
-2. **请求参数变更**：
-   - 移除：`yourName`, `partnerName`, `role`, `style`
+2. **请求参数变更（最终定稿）**：
+   - 移除：`yourName`, `partnerName`, `role`, `style`, `wordCount`
    - 新增：
      - `topic` (必需) - 主题
      - `contentRequirements` (必需) - 内容要求
-     - `wordCount` (必需) - 字数：100/300/500/800/1000/1200（默认300）
-     - `rhythmRequirements` (可选) - 韵律要求
-     - `otherRequirements` (可选) - 其他要求（包含俚语输入）
+     - `rhythmRequirements` (可选) - 韵律要求（留空使用默认）
+     - `otherRequirements` (可选) - 其他要求（留空使用默认）
      - `referenceLyrics` (可选) - 参考歌词
 
-3. **提示词模板重构**：
+3. **提示词模板重构（最终定稿）**：
 ```
 # Character Profile
 You are a highly talented and globally renowned rapper, skilled in various styles. Your lyrics are known for their sharp rhymes, clever puns, and profound storytelling. 
@@ -34,20 +33,18 @@ Generate rap lyrics based on the provided theme, style and keywords by the user.
 
 2. **Content Requirements:** {contentRequirements}
 
-3. **Word count requirement:** {wordCount} words
-
-4. **Rhythm Requirements:** {rhythmRequirements}
+3. **Rhythm Requirements:** {rhythmRequirements or default}
    - Use a rhyming structure of AABB or ABAB.
    - Try to use internal rhymes and polysyllabic rhymes as much as possible.
    - Each line should roughly consist of 8 to 12 syllables to maintain a sense of rhythm.
 
-5. **Other Requirements:** 
+4. **Other Requirements:** {otherRequirements or default}
    - The lyrics must contain a brief storyline.
    - There must be a powerful "punchline" in the last four lines to serve as the conclusion.
    - Incorporate the following slang naturally: [List some slangs, such as: on the grind, making moves, no cap, etc.]
    - Avoid using clichés and strive for originality and impact.
    
-   注：如果用户提供了自定义的其他要求，则使用用户输入的内容；否则使用上述默认要求。
+   注：如果用户提供了自定义的韵律/其他要求，则使用用户输入的内容；否则使用上述默认要求。
 
 6. **Reference Lyrics:** {referenceLyrics}
 ```

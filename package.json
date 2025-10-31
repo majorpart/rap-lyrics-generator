@@ -1,7 +1,7 @@
 {
-  "name": "ai-wedding-vows-generator",
+  "name": "ai-rap-lyrics-generator",
   "version": "1.0.0",
-  "description": "AI Wedding Vows Generator - Create personalized wedding vows with AI for your special day",
+  "description": "AI Rap Lyrics Generator - Create personalized, authentic rap lyrics with AI",
   "main": "index.html",
   "engines": {
     "node": ">=18.0.0"
@@ -19,14 +19,14 @@
   },
   "keywords": [
     "ai",
-    "wedding-vows",
-    "wedding",
-    "marriage",
-    "ceremony",
-    "vows-generator",
-    "wedding-planning",
-    "personalized-vows"
+    "rap-lyrics-generator",
+    "rap-lyrics",
+    "song-lyrics-generator",
+    "hiphop",
+    "lyrics",
+    "music",
+    "creative-writing"
   ],
-  "author": "AI Wedding Vows Generator Team",
+  "author": "AI Rap Lyrics Generator Team",
   "license": "MIT"
 }

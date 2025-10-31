@@ -10,7 +10,7 @@ Disallow: /*.ads
 Disallow: /tracking/
 
 # Sitemaps
-Sitemap: https://ai-wedding-vows-examples.momo-test.com/sitemap.xml
+Sitemap: https://ai-rap-lyrics-generator.momo-test.com/sitemap.xml
 
 # 优化爬取频率
 Crawl-delay: 1

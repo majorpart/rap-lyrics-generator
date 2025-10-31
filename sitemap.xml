@@ -4,104 +4,65 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- Wedding Vows Generator Sitemap -->
+<!-- AI Rap Lyrics Generator Sitemap -->
 
 <!-- Main Pages -->
 <url>
-  <loc>https://ai-wedding-vows-examples.momo-test.com/</loc>
-  <lastmod>2025-10-26T00:00:00+00:00</lastmod>
+  <loc>https://ai-rap-lyrics-generator.momo-test.com/</loc>
+  <lastmod>2025-10-31T00:00:00+00:00</lastmod>
   <priority>1.00</priority>
   <changefreq>weekly</changefreq>
-</url>
+  </url>
 <url>
-  <loc>https://ai-wedding-vows-examples.momo-test.com/index.html</loc>
-  <lastmod>2025-10-26T00:00:00+00:00</lastmod>
+  <loc>https://ai-rap-lyrics-generator.momo-test.com/index.html</loc>
+  <lastmod>2025-10-31T00:00:00+00:00</lastmod>
   <priority>1.00</priority>
   <changefreq>weekly</changefreq>
-</url>
+  </url>
 
 <!-- Navigation Pages -->
 <url>
-  <loc>https://ai-wedding-vows-examples.momo-test.com/examples.html</loc>
-  <lastmod>2025-10-26T00:00:00+00:00</lastmod>
+  <loc>https://ai-rap-lyrics-generator.momo-test.com/examples.html</loc>
+  <lastmod>2025-10-31T00:00:00+00:00</lastmod>
   <priority>0.95</priority>
-  <changefreq>monthly</changefreq>
-</url>
+  <changefreq>weekly</changefreq>
+  </url>
 <url>
-  <loc>https://ai-wedding-vows-examples.momo-test.com/blog.html</loc>
-  <lastmod>2025-10-26T00:00:00+00:00</lastmod>
+  <loc>https://ai-rap-lyrics-generator.momo-test.com/blog.html</loc>
+  <lastmod>2025-10-31T00:00:00+00:00</lastmod>
   <priority>0.90</priority>
   <changefreq>weekly</changefreq>
-</url>
-
-<!-- Blog Articles -->
+  </url>
 <url>
-  <loc>https://ai-wedding-vows-examples.momo-test.com/blog/what-are-wedding-vows.html</loc>
-  <lastmod>2025-10-26T00:00:00+00:00</lastmod>
-  <priority>0.85</priority>
-  <changefreq>monthly</changefreq>
-</url>
-<url>
-  <loc>https://ai-wedding-vows-examples.momo-test.com/blog/what-are-the-wedding-vows.html</loc>
-  <lastmod>2025-10-26T00:00:00+00:00</lastmod>
-  <priority>0.85</priority>
-  <changefreq>monthly</changefreq>
-</url>
-<url>
-  <loc>https://ai-wedding-vows-examples.momo-test.com/blog/how-to-write-wedding-vows.html</loc>
-  <lastmod>2025-10-26T00:00:00+00:00</lastmod>
-  <priority>0.85</priority>
-  <changefreq>monthly</changefreq>
-</url>
-<url>
-  <loc>https://ai-wedding-vows-examples.momo-test.com/blog/how-to-write-wedding-vows-groom.html</loc>
-  <lastmod>2025-10-26T00:00:00+00:00</lastmod>
-  <priority>0.85</priority>
-  <changefreq>monthly</changefreq>
-</url>
-<url>
-  <loc>https://ai-wedding-vows-examples.momo-test.com/blog/how-to-write-vows-for-a-wedding.html</loc>
-  <lastmod>2025-10-26T00:00:00+00:00</lastmod>
-  <priority>0.85</priority>
-  <changefreq>monthly</changefreq>
-</url>
-<url>
-  <loc>https://ai-wedding-vows-examples.momo-test.com/blog/how-do-i-write-wedding-vows.html</loc>
-  <lastmod>2025-10-26T00:00:00+00:00</lastmod>
-  <priority>0.85</priority>
-  <changefreq>monthly</changefreq>
-</url>
-<url>
-  <loc>https://ai-wedding-vows-examples.momo-test.com/blog/how-to-start-wedding-vows.html</loc>
-  <lastmod>2025-10-26T00:00:00+00:00</lastmod>
-  <priority>0.85</priority>
-  <changefreq>monthly</changefreq>
-</url>
-<url>
-  <loc>https://ai-wedding-vows-examples.momo-test.com/blog/how-long-should-wedding-vows-be.html</loc>
-  <lastmod>2025-10-26T00:00:00+00:00</lastmod>
-  <priority>0.85</priority>
-  <changefreq>monthly</changefreq>
-</url>
-<url>
-  <loc>https://ai-wedding-vows-examples.momo-test.com/blog/has-anyone-used-ai-to-write-wedding-vows.html</loc>
-  <lastmod>2025-10-26T00:00:00+00:00</lastmod>
-  <priority>0.85</priority>
-  <changefreq>monthly</changefreq>
-</url>
-
-<!-- Legal Pages -->
-<url>
-  <loc>https://ai-wedding-vows-examples.momo-test.com/privacy-policy.html</loc>
-  <lastmod>2025-10-26T00:00:00+00:00</lastmod>
+  <loc>https://ai-rap-lyrics-generator.momo-test.com/privacy-policy.html</loc>
+  <lastmod>2025-10-31T00:00:00+00:00</lastmod>
   <priority>0.60</priority>
   <changefreq>yearly</changefreq>
-</url>
+  </url>
 <url>
-  <loc>https://ai-wedding-vows-examples.momo-test.com/terms-and-conditions.html</loc>
-  <lastmod>2025-10-26T00:00:00+00:00</lastmod>
+  <loc>https://ai-rap-lyrics-generator.momo-test.com/terms-and-conditions.html</loc>
+  <lastmod>2025-10-31T00:00:00+00:00</lastmod>
   <priority>0.60</priority>
   <changefreq>yearly</changefreq>
-</url>
+  </url>
+
+<!-- Examples Detail Pages -->
+<url><loc>https://ai-rap-lyrics-generator.momo-test.com/longing-for-home.html</loc><lastmod>2025-10-31T00:00:00+00:00</lastmod><priority>0.85</priority><changefreq>monthly</changefreq></url>
+<url><loc>https://ai-rap-lyrics-generator.momo-test.com/dreams-are-not-out-of-reach.html</loc><lastmod>2025-10-31T00:00:00+00:00</lastmod><priority>0.85</priority><changefreq>monthly</changefreq></url>
+<url><loc>https://ai-rap-lyrics-generator.momo-test.com/protecting-homeland-in-war.html</loc><lastmod>2025-10-31T00:00:00+00:00</lastmod><priority>0.85</priority><changefreq>monthly</changefreq></url>
+<url><loc>https://ai-rap-lyrics-generator.momo-test.com/the-boy-confessed-his-feelings-to-the-girl.html</loc><lastmod>2025-10-31T00:00:00+00:00</lastmod><priority>0.85</priority><changefreq>monthly</changefreq></url>
+<url><loc>https://ai-rap-lyrics-generator.momo-test.com/brothers-keeper.html</loc><lastmod>2025-10-31T00:00:00+00:00</lastmod><priority>0.85</priority><changefreq>monthly</changefreq></url>
+<url><loc>https://ai-rap-lyrics-generator.momo-test.com/delivery-flow.html</loc><lastmod>2025-10-31T00:00:00+00:00</lastmod><priority>0.85</priority><changefreq>monthly</changefreq></url>
+<url><loc>https://ai-rap-lyrics-generator.momo-test.com/ghostwriter-no-more.html</loc><lastmod>2025-10-31T00:00:00+00:00</lastmod><priority>0.85</priority><changefreq>monthly</changefreq></url>
+<url><loc>https://ai-rap-lyrics-generator.momo-test.com/our-broken-hit.html</loc><lastmod>2025-10-31T00:00:00+00:00</lastmod><priority>0.85</priority><changefreq>monthly</changefreq></url>
+<url><loc>https://ai-rap-lyrics-generator.momo-test.com/underdog-anthem.html</loc><lastmod>2025-10-31T00:00:00+00:00</lastmod><priority>0.85</priority><changefreq>monthly</changefreq></url>
+
+<!-- Blog Articles (New, Rap) -->
+<url><loc>https://ai-rap-lyrics-generator.momo-test.com/blog/how-to-get-a-good-rap-through-rap-lyrics-generator.html</loc><lastmod>2025-10-31T00:00:00+00:00</lastmod><priority>0.80</priority><changefreq>monthly</changefreq></url>
+<url><loc>https://ai-rap-lyrics-generator.momo-test.com/blog/how-to-write-rap-lyrics.html</loc><lastmod>2025-10-31T00:00:00+00:00</lastmod><priority>0.80</priority><changefreq>monthly</changefreq></url>
+<url><loc>https://ai-rap-lyrics-generator.momo-test.com/blog/how-to-write-rap-lyrics-to-a-beat.html</loc><lastmod>2025-10-31T00:00:00+00:00</lastmod><priority>0.80</priority><changefreq>monthly</changefreq></url>
+<url><loc>https://ai-rap-lyrics-generator.momo-test.com/blog/what-makes-a-good-rap-lyric.html</loc><lastmod>2025-10-31T00:00:00+00:00</lastmod><priority>0.80</priority><changefreq>monthly</changefreq></url>
+<url><loc>https://ai-rap-lyrics-generator.momo-test.com/blog/how-can-i-turn-my-experiences-into-lyrics-using-an-ai-rap-lyric-generator.html</loc><lastmod>2025-10-31T00:00:00+00:00</lastmod><priority>0.80</priority><changefreq>monthly</changefreq></url>
+<url><loc>https://ai-rap-lyrics-generator.momo-test.com/blog/how-can-one-obtain-inspiration-for-creating-rap-lyrics.html</loc><lastmod>2025-10-31T00:00:00+00:00</lastmod><priority>0.80</priority><changefreq>monthly</changefreq></url>
 
 </urlset>

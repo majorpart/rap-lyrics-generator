@@ -12,21 +12,21 @@ module.exports = async function handler(req, res) {
         return res.status(200).end();
     }
     
-    // 只允许POST请求
+    // 只允许POST请求，其他方法返回405
     if (req.method !== 'POST') {
         console.log('Method not allowed:', req.method);
-        return res.status(405).json({ error: 'Method not allowed' });
+        return res.status(405).json({ error: 'Method not allowed. Only POST requests are supported.' });
     }
 
     try {
         console.log('API request received:', req.method, req.url);
         console.log('Request body:', JSON.stringify(req.body, null, 2));
         
-        const { yourName, partnerName, role, wordCount, style, additionalRequirements } = req.body;
+        const { topic, contentRequirements, rhythmRequirements, otherRequirements, referenceLyrics } = req.body;
 
         // 验证必需参数
-        if (!yourName || !partnerName || !role || !wordCount || !style) {
-            console.log('Missing required fields:', { yourName, partnerName, role, wordCount, style });
+        if (!topic || !contentRequirements) {
+            console.log('Missing required fields:', { topic, contentRequirements });
             return res.status(400).json({ error: 'Missing required fields' });
         }
 
@@ -42,16 +42,34 @@ module.exports = async function handler(req, res) {
         const apiUrl = 'https://api.siliconflow.cn/v1/chat/completions';
 
         // 构建提示词
-        const basePrompt = "You are an experienced American wedding officiant who is very skilled at helping newlyweds write their wedding vows. Please write a wedding vow based on the following requirements. No process is needed. Just output the result directly to me. The language is English.";
-        
+        const basePrompt = `# Character Profile
+You are a highly talented and globally renowned rapper, skilled in various styles. Your lyrics are known for their sharp rhymes, clever puns, and profound storytelling. 
+
+# Task Description
+Generate rap lyrics based on the provided theme, style and keywords by the user. 
+
+# Specific Requirements and Constraints`;
+
+        // 韵律要求默认值
+        const defaultRhythmRequirements = `- Use a rhyming structure of AABB or ABAB.
+- Try to use internal rhymes and polysyllabic rhymes as much as possible.
+- Each line should roughly consist of 8 to 12 syllables to maintain a sense of rhythm.`;
+
+        // 其他要求默认值
+        const defaultOtherRequirements = `- The lyrics must contain a brief storyline.
+- There must be a powerful "punchline" in the last four lines to serve as the conclusion.
+- Incorporate the following slang naturally: [List some slangs, such as: on the grind, making moves, no cap, etc.]
+- Avoid using clichés and strive for originality and impact.`;
+
         const requirements = [
-            `1.My name is ${yourName}`,
-            `2.The name of my partner is ${partnerName}`,
-            `3.I am the ${role}`,
-            `4.${style} style`,
-            additionalRequirements ? `5.${additionalRequirements}` : '',
-            `6.The word count is ${wordCount} words`
-        ].filter(req => req).join('\n');
+            `1. **Topic:** ${topic}`,
+            `2. **Content Requirements:** ${contentRequirements}`,
+            rhythmRequirements ? `3. **Rhythm Requirements:** ${rhythmRequirements}` : `3. **Rhythm Requirements:** 
+${defaultRhythmRequirements}`,
+            otherRequirements ? `4. **Other Requirements:** ${otherRequirements}` : `4. **Other Requirements:** 
+${defaultOtherRequirements}`,
+            referenceLyrics ? `5. **Reference Lyrics:** ${referenceLyrics}` : ''
+        ].filter(req => req).join('\n\n');
 
         const fullPrompt = `${basePrompt}\n\n${requirements}`;
 
@@ -92,7 +110,7 @@ module.exports = async function handler(req, res) {
             console.log('Returning successful response');
             return res.status(200).json({ 
                 success: true, 
-                vows: data.choices[0].message.content 
+                lyrics: data.choices[0].message.content 
             });
         } else {
             console.error('Invalid API response format:', JSON.stringify(data, null, 2));
@@ -100,7 +118,7 @@ module.exports = async function handler(req, res) {
         }
 
     } catch (error) {
-        console.error('Error generating wedding vows:', error);
+        console.error('Error generating rap lyrics:', error);
         console.error('Error stack:', error.stack);
         return res.status(500).json({ 
             success: false, 
