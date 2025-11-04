@@ -158,23 +158,39 @@ export default function Home({ hero, recentPosts }) {
         setError('');
         setLyrics('');
         try {
+            // Create abort controller for timeout
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 60000); // 60 second timeout
+            
             const res = await fetch('/api/generate-prompt', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(form)
+                body: JSON.stringify(form),
+                signal: controller.signal
+            }).catch((fetchError) => {
+                clearTimeout(timeoutId);
+                if (fetchError.name === 'AbortError') {
+                    throw new Error('Request timeout. Please try again.');
+                }
+                throw new Error('Network error. Please check your connection and try again.');
             });
+            
+            clearTimeout(timeoutId);
+            
             if (!res.ok) {
                 const d = await res.json().catch(() => ({}));
-                throw new Error(d.error || `API request failed: ${res.status}`);
+                throw new Error(d.error || `API request failed: ${res.status} ${res.statusText}`);
             }
             const data = await res.json();
             if (data.success && data.lyrics) {
                 setLyrics(data.lyrics);
             } else {
-                throw new Error(data.error || 'Invalid API response');
+                throw new Error(data.error || 'Invalid API response. Please try again.');
             }
         } catch (e) {
-            setError(e.message);
+            console.error('Error generating lyrics:', e);
+            const errorMessage = e.message || 'Failed to generate lyrics. Please try again.';
+            setError(errorMessage);
         } finally {
             setIsGenerating(false);
         }

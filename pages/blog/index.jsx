@@ -84,8 +84,14 @@ export default function BlogIndex({ posts, tags }) {
                 {/* Blog Posts Section */}
                 <section className="py-16 bg-gray-50">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {posts.map((post) => (
+                        {posts.length === 0 ? (
+                            <div className="text-center py-12">
+                                <p className="text-gray-600 text-lg mb-4">No blog posts available at the moment.</p>
+                                <p className="text-gray-500 text-sm">Please check back later.</p>
+                            </div>
+                        ) : (
+                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                {posts.map((post) => (
                                 <Link key={post.slug} href={`/blog/${post.slug}`} className="block">
                                     <article className="blog-card rounded-lg p-6 fade-in hover:transform hover:scale-105 transition-all duration-300 cursor-pointer border border-gray-200 bg-white">
                                         <div className="mb-4">
@@ -124,8 +130,9 @@ export default function BlogIndex({ posts, tags }) {
                                         </div>
                                     </article>
                                 </Link>
-                            ))}
-                        </div>
+                                ))}
+                            </div>
+                        )}
                     </div>
                 </section>
 
