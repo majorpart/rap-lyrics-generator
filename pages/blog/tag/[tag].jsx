@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import SEOHead from '../../../components/SEOHead';
-import { getAllTags, filterPostsByTag } from '../../../lib/posts';
 
 export async function getServerSideProps({ params }) {
     const tag = params.tag;
+    const { filterPostsByTag } = await import('../../../lib/posts');
     const posts = filterPostsByTag(tag);
     return { props: { tag, posts } };
 }

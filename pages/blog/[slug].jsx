@@ -1,9 +1,10 @@
 import Head from 'next/head';
 import SEOHead from '../../components/SEOHead';
-import { getAllSlugs, getPostHtmlBySlug } from '../../lib/posts';
 
 export async function getServerSideProps({ params }) {
     const { slug } = params;
+    // Dynamically import server-only module to avoid bundling 'fs' on client
+    const { getPostHtmlBySlug } = await import('../../lib/posts');
     const { title, description, html } = getPostHtmlBySlug(slug);
     return { props: { slug, title, description, html } };
 }

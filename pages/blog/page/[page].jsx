@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import SEOHead from '../../../components/SEOHead';
-import { paginatePosts } from '../../../lib/posts';
 
 export async function getServerSideProps({ params }) {
+    const { paginatePosts } = await import('../../../lib/posts');
     const pages = paginatePosts();
     const index = Math.max(0, Math.min(pages.length - 1, Number(params.page) - 1));
     const posts = pages[index];

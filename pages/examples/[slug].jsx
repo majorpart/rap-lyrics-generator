@@ -3,10 +3,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import SEOHead from '../../components/SEOHead';
 import MobileNav from '../../components/MobileNav';
-import { getAllExampleSlugs, getExampleBySlug } from '../../lib/examples';
 
 export async function getServerSideProps({ params }) {
     const { slug } = params;
+    const { getExampleBySlug } = await import('../../lib/examples');
     const example = getExampleBySlug(slug);
     
     if (!example) {
