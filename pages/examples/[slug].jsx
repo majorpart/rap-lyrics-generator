@@ -68,71 +68,120 @@ export default function ExampleDetailPage({ example }) {
                     </div>
                 </nav>
 
-                {/* Main Content */}
-                <div className="pt-20 sm:pt-24 pb-12 sm:pb-16 bg-gray-50">
-                    <div className="max-w-4xl mx-auto px-4 sm:px-6">
-                        {/* Breadcrumb */}
-                        <nav className="mb-6 text-sm text-gray-600">
+                {/* Breadcrumb Navigation */}
+                <div className="pt-20 pb-4 bg-gray-50 border-b border-gray-100">
+                    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <nav className="text-sm text-gray-500">
                             <Link href="/" className="hover:text-purple-600 transition-colors">Home</Link>
                             <span className="mx-2">/</span>
                             <Link href="/examples" className="hover:text-purple-600 transition-colors">Examples</Link>
                             <span className="mx-2">/</span>
-                            <span className="text-gray-900">{example.title}</span>
+                            <span className="text-gray-700">{example.title}</span>
                         </nav>
-
-                        {/* Back to Examples */}
-                        <div className="mb-6">
-                            <Link href="/examples" className="inline-flex items-center text-purple-600 hover:text-purple-500 transition-colors">
-                                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                                </svg>
-                                Back to Examples
-                            </Link>
-                        </div>
-
-                        {/* Content */}
-                        <div className="bg-white rounded-lg shadow-lg p-6 sm:p-8">
-                            {example.description && (
-                                <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8">{example.description}</p>
-                            )}
-                            <div 
-                                className="prose prose-base sm:prose-lg max-w-none text-base sm:text-lg"
-                                dangerouslySetInnerHTML={{ __html: example.content }}
-                            />
-                        </div>
-                        
-                        {/* Call to Action Section */}
-                        <section className="mt-12 py-12 bg-gray-50 rounded-lg">
-                            <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-                                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Ready to Create Your Own?</h2>
-                                <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-                                    Get inspired by this example and create your own personalized rap lyrics with our AI generator. Simply provide your theme, content requirements, and preferences, and we'll craft unique rap lyrics tailored to your style.
-                                </p>
-                                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                    <Link 
-                                        href="/#main-feature" 
-                                        className="px-8 py-4 rounded-lg font-semibold text-white text-lg hover:shadow-lg transition-all duration-300 min-h-[48px] flex items-center justify-center" 
-                                        style={{ background: 'linear-gradient(45deg, #7c3aed, #a78bfa)' }}
-                                    >
-                                        Generate Your Rap Lyrics
-                                    </Link>
-                                    <Link 
-                                        href="/examples" 
-                                        className="px-8 py-4 border border-purple-600 text-purple-600 rounded-lg font-semibold text-lg hover:bg-purple-600 hover:text-white transition-all duration-300 min-h-[48px] flex items-center justify-center"
-                                    >
-                                        View More Examples
-                                    </Link>
-                                    <Link 
-                                        href="/blog" 
-                                        className="px-8 py-4 border border-purple-600 text-purple-600 rounded-lg font-semibold text-lg hover:bg-purple-600 hover:text-white transition-all duration-300 min-h-[48px] flex items-center justify-center"
-                                    >
-                                        Read Our Blog
-                                    </Link>
-                                </div>
-                            </div>
-                        </section>
                     </div>
                 </div>
+
+                {/* Back to Examples Link */}
+                <div className="bg-white pb-4">
+                    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <Link href="/examples" className="inline-flex items-center text-purple-600 hover:text-purple-500 transition-colors">
+                            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                            </svg>
+                            Back to Examples
+                        </Link>
+                    </div>
+                </div>
+
+                {/* Example Header */}
+                <div className="bg-white pb-8">
+                    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-6">
+                            {example.title}
+                        </h1>
+                    </div>
+                </div>
+
+                {/* Hero Image */}
+                <div className="bg-white pb-8">
+                    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div className="w-full aspect-video rounded-lg overflow-hidden">
+                            <Image
+                                src={example.image}
+                                alt={example.title}
+                                width={800}
+                                height={450}
+                                className="w-full h-full object-cover"
+                                priority
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                {/* Lyrics Content */}
+                <article className="py-12 bg-white">
+                    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div 
+                            className="prose prose-lg max-w-none whitespace-pre-line" 
+                            style={{ 
+                                color: '#1f2937', 
+                                lineHeight: '1.8'
+                            }}
+                        >
+                            <div dangerouslySetInnerHTML={{ __html: example.content }} />
+                        </div>
+                    </div>
+                </article>
+
+                <style jsx global>{`
+                    .prose h2 {
+                        color: #7c3aed;
+                        font-size: 1.875rem;
+                        font-weight: 400;
+                        margin-top: 2rem;
+                        margin-bottom: 1rem;
+                    }
+                    .prose h3 {
+                        color: #7c3aed;
+                        font-size: 1.5rem;
+                        font-weight: 400;
+                        margin-top: 1.5rem;
+                        margin-bottom: 0.75rem;
+                    }
+                    .prose p {
+                        margin-bottom: 1.25rem;
+                    }
+                    .prose strong {
+                        color: #111827;
+                        font-weight: 600;
+                    }
+                `}</style>
+                        
+                {/* Call to Action Section */}
+                <section className="py-16 bg-gray-50">
+                    <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">Ready to Create Your Own?</h2>
+                        <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
+                            Get inspired by this example and create your own personalized rap lyrics with our AI generator. 
+                            Simply provide your theme, content requirements, and preferences, and we'll craft unique rap lyrics tailored to your style.
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <Link 
+                                href="/#main-feature" 
+                                className="px-8 py-4 rounded-lg font-semibold text-white text-lg hover:shadow-lg transition-all duration-300 min-h-[48px] flex items-center justify-center" 
+                                style={{ background: 'linear-gradient(45deg, #7c3aed, #a78bfa)' }}
+                            >
+                                Generate Your Rap Lyrics
+                            </Link>
+                            <Link 
+                                href="/examples" 
+                                className="px-8 py-4 border border-purple-600 text-purple-600 rounded-lg font-semibold text-lg hover:bg-purple-600 hover:text-white transition-all duration-300 min-h-[48px] flex items-center justify-center"
+                            >
+                                View More Examples
+                            </Link>
+                        </div>
+                    </div>
+                </section>
 
                 {/* Footer */}
                 <footer className="py-16 bg-white border-t border-gray-200">
