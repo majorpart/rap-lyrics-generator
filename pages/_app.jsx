@@ -27,6 +27,16 @@ export default function App({ Component, pageProps }) {
                         max-width: 100%;
                         height: auto;
                     }
+                    .container-max-width {
+                        max-width: 1200px;
+                    }
+                    .gradient-text {
+                        background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 50%, #7c3aed 100%);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        background-clip: text;
+                        color: transparent;
+                    }
                 `}} />
             </Head>
             <Component {...pageProps} />

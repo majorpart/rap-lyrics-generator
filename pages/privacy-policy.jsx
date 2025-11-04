@@ -2,18 +2,26 @@ import Head from 'next/head';
 import Link from 'next/link';
 import SEOHead from '../components/SEOHead';
 import MobileNav from '../components/MobileNav';
-import { getLegalContent } from '../lib/legal';
 
 export async function getServerSideProps() {
-    const content = getLegalContent('privacy-policy');
-    
-    if (!content) {
+    // Dynamically import server-only module to avoid bundling 'fs' on client
+    try {
+        const { getLegalContent } = await import('../lib/legal');
+        const content = getLegalContent('privacy-policy');
+        
+        if (!content) {
+            return {
+                notFound: true
+            };
+        }
+        
+        return { props: { content } };
+    } catch (error) {
+        console.error('Error in getServerSideProps:', error);
         return {
             notFound: true
         };
     }
-    
-    return { props: { content } };
 }
 
 export default function PrivacyPolicyPage({ content }) {
@@ -44,10 +52,10 @@ export default function PrivacyPolicyPage({ content }) {
                 />
             </Head>
 
-            <main className="min-h-screen bg-white">
+            <main className="min-h-screen bg-white" style={{ fontFamily: "'Slabo 27px', serif" }}>
                 {/* Navigation */}
-                <nav className="bg-white border-b border-gray-200 fixed w-full top-0 z-50">
-                    <div className="max-w-7xl mx-auto px-4">
+                <nav className="fixed top-0 w-full z-50 bg-white border-b border-gray-200">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="flex items-center justify-center h-16 relative">
                             <div className="absolute left-0 flex items-center">
                                 <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
@@ -56,9 +64,9 @@ export default function PrivacyPolicyPage({ content }) {
                                 </Link>
                             </div>
                             <div className="hidden md:flex space-x-8">
-                                <Link href="/" className="text-gray-700 hover:text-purple-600 transition-colors font-medium min-h-[48px] flex items-center">Rap Lyrics</Link>
-                                <Link href="/examples" className="text-gray-700 hover:text-purple-600 transition-colors font-medium min-h-[48px] flex items-center">Examples</Link>
-                                <Link href="/blog" className="text-gray-700 hover:text-purple-600 transition-colors font-medium min-h-[48px] flex items-center">Blog</Link>
+                                <Link href="/" className="nav-link text-gray-700 hover:text-purple-600 transition-colors min-h-[48px] flex items-center">Rap Lyrics</Link>
+                                <Link href="/examples" className="nav-link text-gray-700 hover:text-purple-600 transition-colors min-h-[48px] flex items-center">Examples</Link>
+                                <Link href="/blog" className="nav-link text-gray-700 hover:text-purple-600 transition-colors min-h-[48px] flex items-center">Blog</Link>
                             </div>
                             <MobileNav />
                         </div>
@@ -97,8 +105,9 @@ export default function PrivacyPolicyPage({ content }) {
 
                 {/* Footer */}
                 <footer className="py-16 bg-white border-t border-gray-200">
-                    <div className="max-w-7xl mx-auto px-4">
+                    <div className="container-max-width mx-auto px-4">
                         <div className="grid md:grid-cols-3 gap-8">
+                            {/* Logo and Name */}
                             <div>
                                 <div className="flex items-center mb-4">
                                     <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
@@ -106,8 +115,14 @@ export default function PrivacyPolicyPage({ content }) {
                                         <span className="text-xl font-bold text-purple-600">AI Rap Lyrics</span>
                                     </Link>
                                 </div>
-                                <p className="text-gray-600 mb-4">Create personalized, authentic rap lyrics with AI.</p>
+                                <p className="text-gray-600 mb-4">Create personalized, authentic rap lyrics with AI. Perfect for your songs and creative projects.</p>
+                                <div className="flex space-x-4">
+                                    <Link href="/#main-feature" className="text-purple-600 hover:text-purple-500 transition-colors font-medium">Try Now</Link>
+                                    <Link href="/examples" className="text-purple-600 hover:text-purple-500 transition-colors font-medium">View Examples</Link>
+                                </div>
                             </div>
+
+                            {/* Navigation Links */}
                             <div>
                                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Navigation</h3>
                                 <div className="space-y-2">
@@ -116,16 +131,24 @@ export default function PrivacyPolicyPage({ content }) {
                                     <Link href="/blog" className="block text-gray-600 hover:text-purple-600 transition-colors">Blog</Link>
                                 </div>
                             </div>
+
+                            {/* Legal Links */}
                             <div>
                                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Legal</h3>
                                 <div className="space-y-2">
-                                    <Link href="/privacy-policy" className="block text-purple-600 hover:text-purple-500 transition-colors">Privacy Policy</Link>
+                                    <Link href="/privacy-policy" className="block text-gray-600 hover:text-purple-600 transition-colors">Privacy Policy</Link>
                                     <Link href="/terms-and-conditions" className="block text-gray-600 hover:text-purple-600 transition-colors">Terms and Conditions</Link>
                                 </div>
                             </div>
                         </div>
+
                         <div className="border-t border-gray-200 mt-8 pt-8 text-center">
-                            <p className="text-gray-500">© 2025 AI Rap Lyrics Generator. All rights reserved.</p>
+                            <p className="text-gray-600">© 2025 AI Rap Lyrics Generator. All rights reserved.</p>
+                            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-2">
+                                <p className="text-gray-600">
+                                    Contact: <a href="mailto:support@ai-rap-lyrics-generator.momo-test.com" className="text-purple-600 hover:text-purple-500">support@ai-rap-lyrics-generator.momo-test.com</a>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </footer>
