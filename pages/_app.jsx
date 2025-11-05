@@ -36,9 +36,10 @@ export default function App({ Component, pageProps }) {
                     body {
                         font-size: 16px;
                         line-height: 1.6;
-                        font-family: 'Slabo 27px', serif;
+                        font-family: 'Slabo 27px', Georgia, 'Times New Roman', serif;
                         -webkit-font-smoothing: antialiased;
                         -moz-osx-font-smoothing: grayscale;
+                        text-rendering: optimizeLegibility;
                     }
                     
                     /* Image optimization */
