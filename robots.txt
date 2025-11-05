@@ -2,8 +2,10 @@ User-agent: *
 Allow: /
 Allow: /assets/
 Allow: /js/
-Allow: /api/
 Allow: /blog/
+Allow: /examples/
+Allow: /privacy-policy
+Allow: /terms-and-conditions
 
 # 禁止抓取广告和跟踪脚本
 Disallow: /ads/
@@ -16,7 +18,10 @@ Disallow: /cache/
 Disallow: /*.tmp
 Disallow: /*.log
 
-# Sitemaps（已更新为新域名）
+# 禁止抓取 API 路由（除非需要）
+Disallow: /api/
+
+# Sitemaps
 Sitemap: https://ai-rap-lyrics-generator.momo-test.com/sitemap.xml
 
 # 优化爬取频率
@@ -27,25 +32,33 @@ User-agent: Googlebot
 Allow: /
 Allow: /assets/
 Allow: /js/
-Allow: /api/
 Allow: /blog/
-Allow: /examples.html
-Allow: /blog.html
-Allow: /privacy-policy.html
-Allow: /terms-and-conditions.html
+Allow: /examples/
+Allow: /privacy-policy
+Allow: /terms-and-conditions
+# 禁止抓取 API 路由
+Disallow: /api/
 
 # 允许Bingbot访问
 User-agent: Bingbot
 Allow: /
 Allow: /assets/
 Allow: /js/
-Allow: /api/
 Allow: /blog/
+Allow: /examples/
+Allow: /privacy-policy
+Allow: /terms-and-conditions
+# 禁止抓取 API 路由
+Disallow: /api/
 
 # 允许百度爬虫访问
 User-agent: Baiduspider
 Allow: /
 Allow: /assets/
 Allow: /js/
-Allow: /api/
 Allow: /blog/
+Allow: /examples/
+Allow: /privacy-policy
+Allow: /terms-and-conditions
+# 禁止抓取 API 路由
+Disallow: /api/

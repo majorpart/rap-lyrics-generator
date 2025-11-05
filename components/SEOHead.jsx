@@ -7,8 +7,17 @@ export default function SEOHead({
     image = '/assets/images/rap-lyrics-generator2.png',
     noIndex = false
 }) {
-    const site = process.env.NEXT_PUBLIC_SITE_URL || '';
-    const toAbs = (u) => (u?.startsWith('http') ? u : `${site}${u}`);
+    // Default site URL if environment variable is not set
+    const defaultSiteUrl = 'https://ai-rap-lyrics-generator.momo-test.com';
+    const site = process.env.NEXT_PUBLIC_SITE_URL || defaultSiteUrl;
+    const toAbs = (u) => {
+        // If already absolute URL, return as is
+        if (u?.startsWith('http')) return u;
+        // Ensure URL starts with / and site doesn't end with /
+        const cleanUrl = u.startsWith('/') ? u : `/${u}`;
+        const cleanSite = site.endsWith('/') ? site.slice(0, -1) : site;
+        return `${cleanSite}${cleanUrl}`;
+    };
     return (
         <Head>
             <title>{title}</title>

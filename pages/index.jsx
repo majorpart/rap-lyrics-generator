@@ -212,6 +212,8 @@ export default function Home({ hero, recentPosts }) {
         <>
             <SEOHead title={hero.title} description={hero.description} url={'/'} />
             <Head>
+                {/* Preload critical hero background image */}
+                <link rel="preload" as="image" href="/assets/images/rap-lyrics-generator2.png" />
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{
@@ -271,7 +273,9 @@ export default function Home({ hero, recentPosts }) {
                     backgroundImage: "url('/assets/images/rap-lyrics-generator2.png')", 
                     backgroundSize: 'cover', 
                     backgroundPosition: 'center', 
-                    backgroundRepeat: 'no-repeat' 
+                    backgroundRepeat: 'no-repeat',
+                    willChange: 'auto',
+                    contentVisibility: 'auto'
                 }}>
                     <div className="absolute inset-0 bg-black bg-opacity-40"></div>
                     <div className="absolute inset-0">
@@ -493,7 +497,7 @@ Leave empty to use default requirements."
                                 <div className="mb-4">
                                     <h3 className="text-xl font-semibold text-purple-600 mb-2">Longing for Home</h3>
                                     <div className="mt-3 mb-4 rounded-lg overflow-hidden border border-gray-200" style={{ aspectRatio: '16/9' }}>
-                                        <Image src="/assets/images/rap-lyrics-longing-for -home.jpg" alt="Longing for Home rap lyrics example" width={600} height={338} className="w-full h-full object-cover" />
+                                        <Image src="/assets/images/rap-lyrics-longing-for -home.jpg" alt="Longing for Home rap lyrics example" width={600} height={338} className="w-full h-full object-cover" loading="lazy" placeholder="blur" blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQADAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//9k=" />
                                     </div>
                                 </div>
                                 <div className="bg-gray-100 rounded-lg p-4 border border-gray-200">
@@ -506,7 +510,7 @@ Leave empty to use default requirements."
                                 <div className="mb-4">
                                     <h3 className="text-xl font-semibold text-purple-600 mb-2">Dreams are not out of reach</h3>
                                     <div className="mt-3 mb-4 rounded-lg overflow-hidden border border-gray-200" style={{ aspectRatio: '16/9' }}>
-                                        <Image src="/assets/images/rap-lyrics-dreams-are-not-out-of-reach.jpg" alt="Dreams are not out of reach rap lyrics example" width={600} height={338} className="w-full h-full object-cover" />
+                                        <Image src="/assets/images/rap-lyrics-dreams-are-not-out-of-reach.jpg" alt="Dreams are not out of reach rap lyrics example" width={600} height={338} className="w-full h-full object-cover" loading="lazy" placeholder="blur" blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQADAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//9k=" />
                                     </div>
                                 </div>
                                 <div className="bg-gray-100 rounded-lg p-4 border border-gray-200">
@@ -519,7 +523,7 @@ Leave empty to use default requirements."
                                 <div className="mb-4">
                                     <h3 className="text-xl font-semibold text-purple-600 mb-2">Protecting One&apos;s Homeland in War</h3>
                                     <div className="mt-3 mb-4 rounded-lg overflow-hidden border border-gray-200" style={{ aspectRatio: '16/9' }}>
-                                        <Image src="/assets/images/rap-lyrics-homeland-in-war.jpg" alt="Protecting One's Homeland in War rap lyrics example" width={600} height={338} className="w-full h-full object-cover" />
+                                        <Image src="/assets/images/rap-lyrics-homeland-in-war.jpg" alt="Protecting One's Homeland in War rap lyrics example" width={600} height={338} className="w-full h-full object-cover" loading="lazy" placeholder="blur" blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQADAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//9k=" />
                                     </div>
                                 </div>
                                 <div className="bg-gray-100 rounded-lg p-4 border border-gray-200">
@@ -532,7 +536,7 @@ Leave empty to use default requirements."
                                 <div className="mb-4">
                                     <h3 className="text-xl font-semibold text-purple-600 mb-2">The boy confessed his feelings to the girl</h3>
                                     <div className="mt-3 mb-4 rounded-lg overflow-hidden border border-gray-200" style={{ aspectRatio: '16/9' }}>
-                                        <Image src="/assets/images/rap-lyrics-boy-confessed-his-feelings-to-the-girl.jpg" alt="The boy confessed his feelings to the girl rap lyrics example" width={600} height={338} className="w-full h-full object-cover" />
+                                        <Image src="/assets/images/rap-lyrics-boy-confessed-his-feelings-to-the-girl.jpg" alt="The boy confessed his feelings to the girl rap lyrics example" width={600} height={338} className="w-full h-full object-cover" loading="lazy" placeholder="blur" blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQADAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//9k=" />
                                     </div>
                                 </div>
                                 <div className="bg-gray-100 rounded-lg p-4 border border-gray-200">
@@ -551,7 +555,7 @@ Leave empty to use default requirements."
                         <div className="grid md:grid-cols-2 gap-8 items-center">
                             <div className="text-center">
                                 <div className="w-full aspect-[4/3] rounded-lg overflow-hidden">
-                                    <Image src="/assets/images/rap-lyrics-generator1.jpg" alt="How to use our rap lyrics generator" width={600} height={450} className="w-full h-full object-cover" />
+                                    <Image src="/assets/images/rap-lyrics-generator1.jpg" alt="How to use our rap lyrics generator" width={600} height={450} className="w-full h-full object-cover" loading="lazy" placeholder="blur" blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQADAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//9k=" />
                                 </div>
                             </div>
                             
