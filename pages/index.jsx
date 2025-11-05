@@ -737,6 +737,9 @@ Leave empty to use default requirements."
                 )}
             </main>
             
+            {/* Google AdSense */}
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5822504482860674" crossOrigin="anonymous"></script>
+            
             <style jsx global>{`
                 .container-max-width {
                     max-width: 1200px;

@@ -19,6 +19,9 @@ export default function Document() {
                 <link rel="apple-touch-icon" href="/assets/images/logo.webp" />
                 <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/logo-32.png" />
                 <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/logo-32.png" />
+                
+                {/* Google AdSense */}
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5822504482860674" crossOrigin="anonymous"></script>
             </Head>
             <body>
                 <Main />

@@ -228,12 +228,16 @@ export default function ExamplesPage({ examples }) {
                                 </div>
                             </div>
                         </div>
+
                         <div className="border-t border-gray-200 mt-8 pt-8 text-center">
                             <p className="text-gray-500">© 2025 AI Rap Lyrics Generator. All rights reserved.</p>
                         </div>
                     </div>
                 </footer>
             </main>
+
+            {/* Google AdSense */}
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5822504482860674" crossOrigin="anonymous"></script>
 
             <style jsx>{`
                 .hero-section {

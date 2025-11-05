@@ -233,6 +233,9 @@ export default function ExampleDetailPage({ example }) {
                     </div>
                 </footer>
             </main>
+
+            {/* Google AdSense */}
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5822504482860674" crossOrigin="anonymous"></script>
         </>
     );
 }

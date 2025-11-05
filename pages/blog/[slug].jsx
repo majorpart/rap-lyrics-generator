@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import SEOHead from '../../components/SEOHead';
 import MobileNav from '../../components/MobileNav';
+import GoogleAd from '../../components/GoogleAd';
 
 export async function getServerSideProps({ params }) {
     const { slug } = params;
@@ -224,6 +225,9 @@ export default function BlogPost({ slug, title, description, html, tag, date, im
                     </div>
                 </footer>
             </main>
+
+            {/* Google AdSense */}
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5822504482860674" crossOrigin="anonymous"></script>
 
             <style jsx global>{`
                 .container-max-width {
