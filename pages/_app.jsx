@@ -147,6 +147,7 @@ export default function App({ Component, pageProps }) {
                     .bottom-0 { bottom: 0; }
                     .left-0 { left: 0; }
                     .z-10 { z-index: 10; }
+                    .z-40 { z-index: 40; }
                     .z-50 { z-index: 50; }
                     
                     /* Display */
@@ -156,17 +157,22 @@ export default function App({ Component, pageProps }) {
                     
                     /* Sizing */
                     .w-full { width: 100%; }
+                    .w-5 { width: 1.25rem; }
+                    .w-6 { width: 1.5rem; }
                     .w-8 { width: 2rem; }
                     .w-12 { width: 3rem; }
                     .w-16 { width: 4rem; }
                     .w-20 { width: 5rem; }
                     .w-24 { width: 6rem; }
+                    .h-5 { height: 1.25rem; }
+                    .h-6 { height: 1.5rem; }
                     .h-8 { height: 2rem; }
                     .h-12 { height: 3rem; }
                     .h-16 { height: 4rem; }
                     .h-full { height: 100%; }
                     .min-h-screen { min-height: 100vh; }
                     .min-h-[48px] { min-height: 48px; }
+                    .min-w-[48px] { min-width: 48px; }
                     .max-w-4xl { max-width: 56rem; }
                     .max-w-7xl { max-width: 80rem; }
                     .mx-auto { margin-left: auto; margin-right: auto; }
@@ -179,6 +185,11 @@ export default function App({ Component, pageProps }) {
                     .bg-gray-300 { background-color: #d1d5db; }
                     .bg-gray-400 { background-color: #9ca3af; }
                     .bg-black { background-color: #000000; }
+                    .bg-purple-600 { background-color: #9333ea; }
+                    .bg-purple-100 { background-color: #f3e8ff; }
+                    .bg-red-100 { background-color: #fee2e2; }
+                    .bg-green-600 { background-color: #16a34a; }
+                    .bg-red-600 { background-color: #dc2626; }
                     .bg-opacity-40 { background-color: rgba(0, 0, 0, 0.4); }
                     .bg-opacity-20 { background-color: rgba(255, 255, 255, 0.2); }
                     .text-white { color: #ffffff; }
@@ -189,10 +200,13 @@ export default function App({ Component, pageProps }) {
                     .text-gray-900 { color: #111827; }
                     .text-purple-600 { color: #9333ea; }
                     .text-red-500 { color: #ef4444; }
+                    .text-red-700 { color: #b91c1c; }
+                    .text-purple-800 { color: #6b21a8; }
                     .border { border-width: 1px; }
                     .border-gray-200 { border-color: #e5e7eb; }
                     .border-gray-300 { border-color: #d1d5db; }
                     .border-white { border-color: #ffffff; }
+                    .border-red-400 { border-color: #f87171; }
                     .border-2 { border-width: 2px; }
                     
                     /* Typography */
@@ -217,13 +231,16 @@ export default function App({ Component, pageProps }) {
                     .p-6 { padding: 1.5rem; }
                     .p-8 { padding: 2rem; }
                     .px-4 { padding-left: 1rem; padding-right: 1rem; }
+                    .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
                     .px-12 { padding-left: 3rem; padding-right: 3rem; }
                     .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
                     .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+                    .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
                     .py-5 { padding-top: 1.25rem; padding-bottom: 1.25rem; }
                     .py-16 { padding-top: 4rem; padding-bottom: 4rem; }
                     .pt-2 { padding-top: 0.5rem; }
                     .pt-32 { padding-top: 8rem; }
+                    .pb-4 { padding-bottom: 1rem; }
                     .pb-8 { padding-bottom: 2rem; }
                     
                     /* Margin */
@@ -235,6 +252,8 @@ export default function App({ Component, pageProps }) {
                     .mb-12 { margin-bottom: 3rem; }
                     .mb-16 { margin-bottom: 4rem; }
                     .mr-3 { margin-right: 0.75rem; }
+                    .mr-4 { margin-right: 1rem; }
+                    .mt-2 { margin-top: 0.5rem; }
                     .mt-3 { margin-top: 0.75rem; }
                     .mt-8 { margin-top: 2rem; }
                     
@@ -242,6 +261,7 @@ export default function App({ Component, pageProps }) {
                     .rounded { border-radius: 0.25rem; }
                     .rounded-lg { border-radius: 0.5rem; }
                     .rounded-full { border-radius: 9999px; }
+                    .rounded-2xl { border-radius: 1rem; }
                     
                     /* Effects */
                     .opacity-80 { opacity: 0.8; }
@@ -249,15 +269,27 @@ export default function App({ Component, pageProps }) {
                     .opacity-60 { opacity: 0.6; }
                     .transition-opacity { transition-property: opacity; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
                     .transition-colors { transition-property: color, background-color, border-color; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
+                    .transition-all { transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
+                    .transition-transform { transition-property: transform; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
                     .duration-300 { transition-duration: 300ms; }
                     .hover\:opacity-80:hover { opacity: 0.8; }
                     .hover\:bg-gray-300:hover { background-color: #d1d5db; }
                     .hover\:text-purple-600:hover { color: #9333ea; }
                     .hover\:border-purple-400:hover { border-color: #c084fc; }
+                    .hover\:bg-purple-700:hover { background-color: #7e22ce; }
+                    .hover\:bg-gray-100:hover { background-color: #f3f4f6; }
+                    .hover\:text-purple-500:hover { color: #a855f7; }
+                    .hover\:text-purple-800:hover { color: #6b21a8; }
+                    .hover\:scale-105:hover { transform: scale(1.05); }
+                    .hover\:transform:hover { transform: translateZ(0); }
                     
                     /* Overflow */
                     .overflow-hidden { overflow: hidden; }
                     .overflow-y-auto { overflow-y: auto; }
+                    
+                    /* Aspect Ratio */
+                    .aspect-video { aspect-ratio: 16 / 9; }
+                    .aspect-\[4\/3\] { aspect-ratio: 4 / 3; }
                     
                     /* Object */
                     .object-cover { object-fit: cover; }
@@ -265,15 +297,21 @@ export default function App({ Component, pageProps }) {
                     /* Cursor */
                     .cursor-not-allowed { cursor: not-allowed; }
                     
+                    /* Shadows */
+                    .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+                    .shadow-xl { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+                    
                     /* Responsive */
                     @media (min-width: 640px) {
                         .sm\:px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
                         .sm\:text-lg { font-size: 1.125rem; line-height: 1.75rem; }
                         .sm\:text-xl { font-size: 1.25rem; line-height: 1.75rem; }
                         .sm\:pt-32 { padding-top: 8rem; }
+                        .sm\:flex-row { flex-direction: row; }
                     }
                     @media (min-width: 768px) {
                         .md\:flex { display: flex; }
+                        .md\:hidden { display: none; }
                         .md\:text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
                         .md\:text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
                         .md\:text-5xl { font-size: 3rem; line-height: 1; }
