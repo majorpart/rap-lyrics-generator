@@ -29,7 +29,7 @@ export default function ExampleDetailPage({ example }) {
                 title={`${example.title} - Rap Lyrics Example | AI Rap Lyrics Generator`}
                 description={example.description || `Explore the rap lyrics example '${example.title}' - AI-generated rap lyrics with sharp rhymes and emotional storytelling.`}
                 url={`/examples/${example.slug}`}
-                image={example.image || '/assets/images/rap-lyrics-generator2.png'}
+                image={example.image || '/assets/images/rap-lyrics-generator2.webp'}
             />
             <Head>
                 <script
@@ -54,7 +54,7 @@ export default function ExampleDetailPage({ example }) {
                         <div className="flex items-center justify-center h-16 relative">
                             <div className="absolute left-0 flex items-center">
                                 <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
-                                    <img src="/assets/images/logo.png" alt="AI Rap Lyrics Logo" className="w-8 h-8 mr-3" />
+                                    <img src="/assets/images/logo.webp" alt="AI Rap Lyrics Logo" className="w-8 h-8 mr-3" width="32" height="32" loading="eager" />
                                     <span className="text-xl font-bold text-purple-600">AI Rap Lyrics</span>
                                 </Link>
                             </div>
@@ -191,7 +191,7 @@ export default function ExampleDetailPage({ example }) {
                             <div>
                                 <div className="flex items-center mb-4">
                                     <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
-                                        <img src="/assets/images/logo.png" alt="AI Rap Lyrics Logo" className="w-8 h-8 mr-3" />
+                                        <img src="/assets/images/logo.webp" alt="AI Rap Lyrics Logo" className="w-8 h-8 mr-3" width="32" height="32" loading="eager" />
                                         <span className="text-xl font-bold text-purple-600">AI Rap Lyrics</span>
                                     </Link>
                                 </div>

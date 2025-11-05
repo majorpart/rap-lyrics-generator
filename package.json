@@ -15,7 +15,8 @@
     "start": "next start",
     "vercel-dev": "vercel dev",
     "deploy": "vercel --prod",
-    "optimize-images": "node scripts/optimize-images.js"
+    "optimize-images": "node scripts/optimize-images.js",
+    "convert-images": "node scripts/convert-images-sharp.js"
   },
   "dependencies": {
     "next": "14.2.15",

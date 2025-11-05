@@ -25,7 +25,7 @@ export default function BlogIndex({ posts, tags }) {
                 title="Blog - AI Rap Lyrics Generator | Rap Writing Tips & Inspiration"
                 description="Discover rap lyrics writing tips, techniques, and inspiration. Expert advice for creating authentic, powerful rap songs with our AI generator."
                 url="/blog"
-                image="/assets/images/rap-lyrics-dreams-are-not-out-of-reach.jpg"
+                image="/assets/images/rap-lyrics-dreams-are-not-out-of-reach.webp"
             />
             <Head>
                 <script
@@ -53,7 +53,7 @@ export default function BlogIndex({ posts, tags }) {
                         <div className="flex items-center justify-center h-16 relative">
                             <div className="absolute left-0 flex items-center">
                                 <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
-                                    <img src="/assets/images/logo.png" alt="AI Rap Lyrics Logo" className="w-8 h-8 mr-3" />
+                                    <img src="/assets/images/logo.webp" alt="AI Rap Lyrics Logo" className="w-8 h-8 mr-3" width="32" height="32" loading="eager" />
                                     <span className="text-xl font-bold text-purple-600">AI Rap Lyrics</span>
                                 </Link>
                             </div>
@@ -97,7 +97,7 @@ export default function BlogIndex({ posts, tags }) {
                                         <div className="mb-4">
                                             <div className={`w-full aspect-video bg-gradient-to-br ${post.gradient || 'from-purple-500 to-pink-500'} rounded-lg mb-4 overflow-hidden`}>
                                                 <Image
-                                                    src={post.image || '/assets/images/rap-lyrics-blog (1).jpg'}
+                                                    src={post.image || '/assets/images/rap-lyrics-blog (1).webp'}
                                                     alt={post.title || post.slug}
                                                     width={600}
                                                     height={338}
@@ -115,7 +115,7 @@ export default function BlogIndex({ posts, tags }) {
                                             <div className="flex items-center">
                                                 <div className="w-8 h-8 rounded-full overflow-hidden mr-3">
                                                     <Image
-                                                        src="/assets/images/logo.png"
+                                                        src="/assets/images/logo.webp"
                                                         alt="Author"
                                                         width={32}
                                                         height={32}
@@ -148,7 +148,7 @@ export default function BlogIndex({ posts, tags }) {
                             {/* Example 1 */}
                             <div className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:border-purple-400 transition-colors">
                                 <Image
-                                    src="/assets/images/rap-lyrics-longing-for -home.jpg"
+                                    src="/assets/images/rap-lyrics-longing-for -home.webp"
                                     alt="Longing for Home Rap Lyrics Example"
                                     width={600}
                                     height={400}
@@ -169,7 +169,7 @@ export default function BlogIndex({ posts, tags }) {
                             {/* Example 2 */}
                             <div className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:border-purple-400 transition-colors">
                                 <Image
-                                    src="/assets/images/rap-lyrics-dreams-are-not-out-of-reach.jpg"
+                                    src="/assets/images/rap-lyrics-dreams-are-not-out-of-reach.webp"
                                     alt="Dreams are not out of reach Rap Lyrics Example"
                                     width={600}
                                     height={400}
@@ -190,7 +190,7 @@ export default function BlogIndex({ posts, tags }) {
                             {/* Example 3 */}
                             <div className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:border-purple-400 transition-colors">
                                 <Image
-                                    src="/assets/images/rap-lyrics-homeland-in-war.jpg"
+                                    src="/assets/images/rap-lyrics-homeland-in-war.webp"
                                     alt="Protecting Homeland in War Rap Lyrics Example"
                                     width={600}
                                     height={400}
@@ -225,7 +225,7 @@ export default function BlogIndex({ posts, tags }) {
                             <div>
                                 <div className="flex items-center mb-4">
                                     <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
-                                        <img src="/assets/images/logo.png" alt="AI Rap Lyrics Logo" className="w-8 h-8 mr-3" />
+                                        <img src="/assets/images/logo.webp" alt="AI Rap Lyrics Logo" className="w-8 h-8 mr-3" width="32" height="32" loading="eager" />
                                         <span className="text-xl font-bold text-purple-600">AI Rap Lyrics</span>
                                     </Link>
                                 </div>

@@ -35,7 +35,7 @@ export default function PrivacyPolicyPage({ content }) {
                 title={`${content.title} - AI Rap Lyrics Generator`}
                 description={content.description || `Privacy Policy for AI Rap Lyrics Generator - How we collect, use, and protect your information when generating rap lyrics.`}
                 url="/privacy-policy"
-                image="/assets/images/rap-lyrics-dreams-are-not-out-of-reach.jpg"
+                image="/assets/images/rap-lyrics-dreams-are-not-out-of-reach.webp"
             />
             <Head>
                 <script
@@ -59,7 +59,7 @@ export default function PrivacyPolicyPage({ content }) {
                         <div className="flex items-center justify-center h-16 relative">
                             <div className="absolute left-0 flex items-center">
                                 <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
-                                    <img src="/assets/images/logo.png" alt="AI Rap Lyrics Logo" className="w-8 h-8 mr-3" />
+                                    <img src="/assets/images/logo.webp" alt="AI Rap Lyrics Logo" className="w-8 h-8 mr-3" width="32" height="32" loading="eager" />
                                     <span className="text-xl font-bold text-purple-600">AI Rap Lyrics</span>
                                 </Link>
                             </div>
@@ -111,7 +111,7 @@ export default function PrivacyPolicyPage({ content }) {
                             <div>
                                 <div className="flex items-center mb-4">
                                     <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
-                                        <img src="/assets/images/logo.png" alt="AI Rap Lyrics Logo" className="w-8 h-8 mr-3" />
+                                        <img src="/assets/images/logo.webp" alt="AI Rap Lyrics Logo" className="w-8 h-8 mr-3" width="32" height="32" loading="eager" />
                                         <span className="text-xl font-bold text-purple-600">AI Rap Lyrics</span>
                                     </Link>
                                 </div>

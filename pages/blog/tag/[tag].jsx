@@ -26,7 +26,7 @@ export default function TagPage({ tag, posts }) {
                 title={`${displayTag} - Rap Lyrics Blog | AI Rap Lyrics Generator`}
                 description={`Explore ${posts.length} rap lyrics blog posts tagged with "${displayTag}". Discover tips, guides, and inspiration for creating powerful rap lyrics.`}
                 url={url}
-                image="/assets/images/rap-lyrics-blog (1).jpg"
+                image="/assets/images/rap-lyrics-blog (1).webp"
             />
             <Head>
                 <script
@@ -64,7 +64,7 @@ export default function TagPage({ tag, posts }) {
                         <div className="flex items-center justify-center h-16 relative">
                             <div className="absolute left-0 flex items-center">
                                 <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
-                                    <img src="/assets/images/logo.png" alt="AI Rap Lyrics Logo" className="w-8 h-8 mr-3" />
+                                    <img src="/assets/images/logo.webp" alt="AI Rap Lyrics Logo" className="w-8 h-8 mr-3" width="32" height="32" loading="eager" />
                                     <span className="text-xl font-bold text-purple-600">AI Rap Lyrics</span>
                                 </Link>
                             </div>
@@ -154,7 +154,7 @@ export default function TagPage({ tag, posts }) {
                             <div>
                                 <div className="flex items-center mb-4">
                                     <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
-                                        <img src="/assets/images/logo.png" alt="AI Rap Lyrics Logo" className="w-8 h-8 mr-3" />
+                                        <img src="/assets/images/logo.webp" alt="AI Rap Lyrics Logo" className="w-8 h-8 mr-3" width="32" height="32" loading="eager" />
                                         <span className="text-xl font-bold text-purple-600">AI Rap Lyrics</span>
                                     </Link>
                                 </div>

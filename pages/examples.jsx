@@ -11,63 +11,63 @@ export async function getServerSideProps() {
             slug: 'longing-for-home',
             title: 'Longing for Home',
             description: 'A powerful rap about middle-aged struggles, the weight of dreams, and the desire to return home.',
-            image: '/assets/images/rap-lyrics-longing-for -home.jpg',
+            image: '/assets/images/rap-lyrics-longing-for -home.webp',
             excerpt: '"Yo, middle-aged now, still chasing the dream,<br>But the hustle and bustle, it\'s wearin\' on the team.<br>I was on the grind, thought I\'d make it big..."'
         },
         {
             slug: 'dreams-are-not-out-of-reach',
             title: 'Dreams are not out of reach',
             description: 'An inspiring rap about persistence, grind, and ultimate victory.',
-            image: '/assets/images/rap-lyrics-dreams-are-not-out-of-reach.jpg',
+            image: '/assets/images/rap-lyrics-dreams-are-not-out-of-reach.webp',
             excerpt: '"Yo, remember that little girl, playing \'round the block?<br>Head full of rhymes, feet tapping, that\'s the clock..."'
         },
         {
             slug: 'protecting-homeland-in-war',
             title: 'Protecting One\'s Homeland in War',
             description: 'A raw narrative of conflict, loss, and resilience.',
-            image: '/assets/images/rap-lyrics-homeland-in-war.jpg',
+            image: '/assets/images/rap-lyrics-homeland-in-war.webp',
             excerpt: '"Yo, walk the streets of Gaza, feel the weight on my chest,<br>Concrete dreams crumbling, peace just a distant guest..."'
         },
         {
             slug: 'the-boy-confessed-his-feelings-to-the-girl',
             title: 'The boy confessed his feelings to the girl',
             description: 'A heartfelt rap about expressing feelings and vulnerability.',
-            image: '/assets/images/rap-lyrics-boy-confessed-his-feelings-to-the-girl.jpg',
+            image: '/assets/images/rap-lyrics-boy-confessed-his-feelings-to-the-girl.webp',
             excerpt: '"Yo, the moment I saw her, time just stood still,<br>She was flipping pages in the library chill..."'
         },
         {
             slug: 'brothers-keeper',
             title: 'Brother\'s Keeper',
             description: 'A story of loyalty and brotherhood.',
-            image: '/assets/images/rap-lyrics-Examples (1).jpg',
+            image: '/assets/images/rap-lyrics-Examples (1).webp',
             excerpt: '"Street nines, remember that Chevy Malibu shine?<br>On the grind since crip, no lookin\' back, just time<br>From broken glass to stage, the dream ain\'t overpaid"'
         },
         {
             slug: 'delivery-flow',
             title: 'Delivery Flow',
             description: 'A rap about daily grind and hustle.',
-            image: '/assets/images/rap-lyrics-Examples (2).jpg',
+            image: '/assets/images/rap-lyrics-Examples (2).webp',
             excerpt: '"Sunrise hits, I\'m out the door, on the grind, no cap,<br>Sipping coffee, rush hour grind, the streets get hot.<br>Riding scoot, the thermometer up north"'
         },
         {
             slug: 'ghostwriter-no-more',
             title: 'Ghostwriter No More',
             description: 'Breaking free from the shadows.',
-            image: '/assets/images/rap-lyrics-Examples (3).jpg',
+            image: '/assets/images/rap-lyrics-Examples (3).webp',
             excerpt: '"Stuck backstage, the vibe\'s too thick<br>Watchin\' him shine, while I stay sick<br>Got the bars flowin\', yeah, I\'m on the grind"'
         },
         {
             slug: 'our-broken-hit',
             title: 'Our Broken Hit',
             description: 'A story of love and loss.',
-            image: '/assets/images/rap-lyrics-Examples (4).jpg',
+            image: '/assets/images/rap-lyrics-Examples (4).webp',
             excerpt: '"Black ice on the dashboard, shinin\' in the rain<br>Wrote the anthem \'bout the girl who lit my candle flame<br>Honeymoon gone sour, but the chorus stillin\'"'
         },
         {
             slug: 'underdog-anthem',
             title: 'Underdog Anthem',
             description: 'Rising from the bottom.',
-            image: '/assets/images/rap-lyrics-Examples (5).jpg',
+            image: '/assets/images/rap-lyrics-Examples (5).webp',
             excerpt: '"You see that chrome shinein\' bright, cold rainin\' down outside<br>That ain\'t no accident, that\'s all the suds I ever tried<br>Back in the day, yeah, I had rhymes that shook the whole block"'
         }
     ];
@@ -82,7 +82,7 @@ export default function ExamplesPage({ examples }) {
                 title="Rap Lyrics Examples - AI Rap Lyrics Generator"
                 description="Explore AI-generated rap lyrics examples with sharp rhymes, storytelling and punchlines. Use them as inspiration for your next track."
                 url="/examples"
-                image="/assets/images/rap-lyrics-dreams-are-not-out-of-reach.jpg"
+                image="/assets/images/rap-lyrics-dreams-are-not-out-of-reach.webp"
             />
             <Head>
                 <script
@@ -113,7 +113,7 @@ export default function ExamplesPage({ examples }) {
                         <div className="flex items-center justify-center h-16 relative">
                             <div className="absolute left-0 flex items-center">
                                 <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
-                                    <img src="/assets/images/logo.png" alt="AI Rap Lyrics Logo" className="w-8 h-8 mr-3" />
+                                    <img src="/assets/images/logo.webp" alt="AI Rap Lyrics Logo" className="w-8 h-8 mr-3" width="32" height="32" loading="eager" />
                                     <span className="text-xl font-bold text-purple-600">AI Rap Lyrics</span>
                                 </Link>
                             </div>
@@ -128,7 +128,7 @@ export default function ExamplesPage({ examples }) {
                 </nav>
 
                 {/* Hero Section */}
-                <section className="pt-24 sm:pt-32 hero-section relative" style={{ backgroundImage: "url('/assets/images/rap-lyrics-generator4.png')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
+                <section className="pt-24 sm:pt-32 hero-section relative" style={{ backgroundImage: "url('/assets/images/rap-lyrics-generator4.webp')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
                     <div className="absolute inset-0 bg-black bg-opacity-40"></div>
                     <div className="container-max-width mx-auto text-center fade-in relative z-10 px-4 sm:px-6">
                         <h1 className="hero-title text-3xl sm:text-5xl md:text-7xl font-bold mb-6 sm:mb-8">
@@ -202,7 +202,7 @@ export default function ExamplesPage({ examples }) {
                             <div>
                                 <div className="flex items-center mb-4">
                                     <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
-                                        <img src="/assets/images/logo.png" alt="AI Rap Lyrics Logo" className="w-8 h-8 mr-3" />
+                                        <img src="/assets/images/logo.webp" alt="AI Rap Lyrics Logo" className="w-8 h-8 mr-3" width="32" height="32" loading="eager" />
                                         <span className="text-xl font-bold text-purple-600">AI Rap Lyrics</span>
                                     </Link>
                                 </div>
