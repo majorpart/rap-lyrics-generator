@@ -3,7 +3,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import SEOHead from '../../components/SEOHead';
 import MobileNav from '../../components/MobileNav';
-import GoogleAd from '../../components/GoogleAd';
 
 export async function getServerSideProps({ params }) {
     const { slug } = params;
