@@ -1,4 +1,4 @@
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ai-rap-lyrics-generator.momo-test.com';
 
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
