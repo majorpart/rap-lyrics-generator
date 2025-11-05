@@ -15,9 +15,13 @@ export default function App({ Component, pageProps }) {
                 <link 
                     href="https://fonts.googleapis.com/css2?family=Slabo+27px:wght@400&display=swap" 
                     rel="stylesheet"
+                    crossOrigin="anonymous"
                 />
                 
-                {/* Optimized CSS - Replaced Tailwind CDN with minimal utility classes */}
+                {/* Tailwind CSS - Required for all utility classes */}
+                <script src="https://cdn.tailwindcss.com" />
+                
+                {/* Additional CSS utilities */}
                 <style dangerouslySetInnerHTML={{__html: `
                     /* Reset and base styles */
                     *, *::before, *::after {
@@ -31,6 +35,9 @@ export default function App({ Component, pageProps }) {
                         -webkit-text-size-adjust: 100%;
                         -ms-text-size-adjust: 100%;
                         scroll-behavior: smooth;
+                        text-rendering: optimizeLegibility;
+                        -webkit-font-smoothing: antialiased;
+                        -moz-osx-font-smoothing: grayscale;
                     }
                     
                     body {
@@ -40,6 +47,15 @@ export default function App({ Component, pageProps }) {
                         -webkit-font-smoothing: antialiased;
                         -moz-osx-font-smoothing: grayscale;
                         text-rendering: optimizeLegibility;
+                        color: #111827;
+                        background-color: #f7f8fb;
+                    }
+                    
+                    /* Ensure all text is properly rendered */
+                    * {
+                        text-rendering: optimizeLegibility;
+                        -webkit-font-smoothing: antialiased;
+                        -moz-osx-font-smoothing: grayscale;
                     }
                     
                     /* Image optimization */
@@ -83,6 +99,14 @@ export default function App({ Component, pageProps }) {
                     /* Loading optimization */
                     img[loading="lazy"] {
                         content-visibility: auto;
+                    }
+                    
+                    /* Ensure text visibility and proper rendering */
+                    p, h1, h2, h3, h4, h5, h6, span, div, a, button, input, textarea, label {
+                        color: inherit;
+                        text-rendering: optimizeLegibility;
+                        -webkit-font-smoothing: antialiased;
+                        -moz-osx-font-smoothing: grayscale;
                     }
                 `}} />
             </Head>
