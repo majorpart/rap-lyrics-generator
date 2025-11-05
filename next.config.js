@@ -21,9 +21,7 @@ const nextConfig = {
         // Disable static image import optimization warning
         unoptimized: false,
         // Content Security Policy for images
-        dangerouslyAllowSVG: false,
-        // Image quality for mobile (lower = faster loading)
-        quality: 85
+        dangerouslyAllowSVG: false
     },
     
     // Headers for performance
