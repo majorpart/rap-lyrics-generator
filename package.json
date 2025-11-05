@@ -11,7 +11,7 @@
     "dev": "next dev",
     "prebuild": "node scripts/copy-static.js",
     "build": "next build",
-    "postbuild": "next-sitemap",
+    "postbuild": "node scripts/copy-sitemap.js",
     "start": "next start",
     "vercel-dev": "vercel dev",
     "deploy": "vercel --prod",
