@@ -5,9 +5,10 @@
 
 **当前配置**:
 - **API 提供商**: OpenRouter (https://openrouter.ai/)
-- **模型**: `tngtech/deepseek-r1t-chimera:free` (DeepSeek R1T Chimera - 结合 R1 推理能力和 V3 效率优化)
+- **模型**: `deepseek/deepseek-chat-v3-0324` (DeepSeek V3 0324 - 685B 参数混合专家模型)
 - **API 文档**: https://openrouter.ai/docs/quick-start
-- **模型信息**: https://openrouter.ai/tngtech/deepseek-r1t-chimera:free
+- **模型信息**: https://openrouter.ai/deepseek/deepseek-chat-v3-0324
+- **价格**: $0.24/M input tokens, $0.84/M output tokens (付费模型)
 
 ---
 

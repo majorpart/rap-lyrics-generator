@@ -59,7 +59,7 @@ export default async function handler(req, res) {
         const fullPrompt = `${basePrompt}\n\n${requirements}${instruction}`;
 
         const requestBody = {
-            model: 'tngtech/deepseek-r1t-chimera:free',
+            model: 'deepseek/deepseek-chat-v3-0324',
             messages: [{ role: 'user', content: fullPrompt }],
             max_tokens: 1000,
             temperature: 0.7
