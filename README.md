@@ -1,7 +1,12 @@
 # Rap Lyrics Generator - 改造方案
 
 ## 项目概述
-将现有的 AI 婚礼誓词生成器改造为 **AI 说唱歌词生成器**，保持使用相同的模型 `deepseek-ai/DeepSeek-R1-0528-Qwen3-8B`，通过 SiliconFlow API 调用。
+将现有的 AI 婚礼誓词生成器改造为 **AI 说唱歌词生成器**，使用 **DeepSeek V3 0324 (free)** 模型，通过 **OpenRouter API** 调用。
+
+**当前配置**:
+- **API 提供商**: OpenRouter (https://openrouter.ai/)
+- **模型**: `deepseek/deepseek-chat-v3-0324:free`
+- **API 文档**: https://openrouter.ai/docs/quick-start
 
 ---
 
@@ -306,7 +311,9 @@ const fullPrompt = `${basePrompt}\n\n${requirements}`;
 
 ## 八、注意事项
 
-1. **保持 API 密钥安全**：继续使用环境变量 `API_KEY`
+1. **保持 API 密钥安全**：使用环境变量 `OPENROUTER_API_KEY` (或 `API_KEY` 用于向后兼容)
+   - 从 https://openrouter.ai/keys 获取 OpenRouter API Key
+   - 在 Vercel 环境变量中设置 `OPENROUTER_API_KEY`
 2. **模型参数**：保持 `max_tokens: 1000, temperature: 0.7`，根据实际效果可调整
 3. **向后兼容**：如果需要保留婚礼誓词功能，可以考虑：
    - 创建两个独立的路由和表单

@@ -13,13 +13,14 @@ export default async function handler(req, res) {
             return res.status(400).json({ error: 'Missing required fields: topic and contentRequirements are required' });
         }
 
-        const apiKey = process.env.API_KEY;
+        // Support both OPENROUTER_API_KEY and API_KEY for backward compatibility
+        const apiKey = process.env.OPENROUTER_API_KEY || process.env.API_KEY;
         if (!apiKey) {
             console.error('API key not configured');
-            return res.status(500).json({ error: 'API key not configured. Please set API_KEY environment variable.' });
+            return res.status(500).json({ error: 'API key not configured. Please set OPENROUTER_API_KEY (or API_KEY) environment variable.' });
         }
 
-        const apiUrl = 'https://api.siliconflow.cn/v1/chat/completions';
+        const apiUrl = 'https://openrouter.ai/api/v1/chat/completions';
 
         const defaultRhythmRequirements = `- Use a rhyming structure of AABB or ABAB.\n- Try to use internal rhymes and polysyllabic rhymes as much as possible.\n- Each line should roughly consist of 8 to 12 syllables to maintain a sense of rhythm.`;
         const defaultOtherRequirements = `- The lyrics must contain a brief storyline.\n- There must be a powerful "punchline" in the last four lines to serve as the conclusion.\n- Incorporate the following slang naturally: [List some slangs, such as: on the grind, making moves, no cap, etc.]\n- Avoid using clichés and strive for originality and impact.`;
@@ -37,7 +38,7 @@ export default async function handler(req, res) {
         const fullPrompt = `${basePrompt}\n\n${requirements}`;
 
         const requestBody = {
-            model: 'deepseek-ai/DeepSeek-R1-0528-Qwen3-8B',
+            model: 'deepseek/deepseek-chat-v3-0324:free',
             messages: [{ role: 'user', content: fullPrompt }],
             max_tokens: 1000,
             temperature: 0.7
@@ -48,11 +49,17 @@ export default async function handler(req, res) {
         const timeoutId = setTimeout(() => controller.abort(), 90000); // 90 second timeout for AI generation
 
         try {
+            // Get site URL from environment or use default
+            const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ai-rap-lyrics-generator.momo-test.com';
+            const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'Rap Lyrics Generator';
+
             const response = await fetch(apiUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${apiKey}`
+                    'Authorization': `Bearer ${apiKey}`,
+                    'HTTP-Referer': siteUrl, // Optional. Site URL for rankings on openrouter.ai
+                    'X-Title': siteName // Optional. Site title for rankings on openrouter.ai
                 },
                 body: JSON.stringify(requestBody),
                 signal: controller.signal
