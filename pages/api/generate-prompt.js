@@ -1,3 +1,22 @@
+// Helper function to format rate limit error messages
+function formatRateLimitError(errorData) {
+    let message = 'The AI model is currently rate-limited. ';
+    
+    if (errorData?.error?.metadata?.raw) {
+        const rawMessage = errorData.error.metadata.raw;
+        if (rawMessage.includes('temporarily rate-limited')) {
+            message += 'Please wait a moment and try again. ';
+        }
+        if (rawMessage.includes('add your own key')) {
+            message += 'For better rate limits, consider adding your own OpenRouter API key at https://openrouter.ai/settings/integrations';
+        }
+    } else {
+        message += 'Please try again in a few moments.';
+    }
+    
+    return message;
+}
+
 export default async function handler(req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -35,59 +54,116 @@ export default async function handler(req, res) {
             referenceLyrics ? `5. **Reference Lyrics:** ${referenceLyrics}` : ''
         ].filter(Boolean).join('\n\n');
 
-        const fullPrompt = `${basePrompt}\n\n${requirements}`;
+        // Add instruction to reply with lyrics content only
+        const instruction = '\n\nJust reply me with the lyrics content directly. There\'s no need to include any other unnecessary things in your reply.';
+        const fullPrompt = `${basePrompt}\n\n${requirements}${instruction}`;
 
         const requestBody = {
-            model: 'deepseek/deepseek-chat-v3-0324:free',
+            model: 'tngtech/deepseek-r1t-chimera:free',
             messages: [{ role: 'user', content: fullPrompt }],
             max_tokens: 1000,
             temperature: 0.7
         };
 
-        // Create abort controller for timeout
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 90000); // 90 second timeout for AI generation
+        // Get site URL from environment or use default
+        const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ai-rap-lyrics-generator.momo-test.com';
+        const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'Rap Lyrics Generator';
 
-        try {
-            // Get site URL from environment or use default
-            const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ai-rap-lyrics-generator.momo-test.com';
-            const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'Rap Lyrics Generator';
+        // Retry configuration for rate limiting
+        const maxRetries = 3;
+        const baseDelay = 2000; // 2 seconds base delay
+        let lastError = null;
 
-            const response = await fetch(apiUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${apiKey}`,
-                    'HTTP-Referer': siteUrl, // Optional. Site URL for rankings on openrouter.ai
-                    'X-Title': siteName // Optional. Site title for rankings on openrouter.ai
-                },
-                body: JSON.stringify(requestBody),
-                signal: controller.signal
-            });
+        for (let attempt = 0; attempt <= maxRetries; attempt++) {
+            try {
+                // Create abort controller for timeout
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 90000); // 90 second timeout for AI generation
 
-            clearTimeout(timeoutId);
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${apiKey}`,
+                            'HTTP-Referer': siteUrl, // Optional. Site URL for rankings on openrouter.ai
+                            'X-Title': siteName // Optional. Site title for rankings on openrouter.ai
+                        },
+                        body: JSON.stringify(requestBody),
+                        signal: controller.signal
+                    });
 
-            if (!response.ok) {
-                const errorText = await response.text().catch(() => 'Unknown error');
-                throw new Error(`API request failed: ${response.status} ${response.statusText}. ${errorText}`);
+                    clearTimeout(timeoutId);
+
+                    if (!response.ok) {
+                        const errorText = await response.text().catch(() => 'Unknown error');
+                        let errorData;
+                        try {
+                            errorData = JSON.parse(errorText);
+                        } catch {
+                            errorData = { error: { message: errorText } };
+                        }
+
+                        // Handle 429 rate limiting with retry
+                        if (response.status === 429) {
+                            lastError = new Error(formatRateLimitError(errorData));
+                            
+                            // If not the last attempt, wait and retry
+                            if (attempt < maxRetries) {
+                                const delay = baseDelay * Math.pow(2, attempt); // Exponential backoff
+                                console.log(`Rate limited (429). Retrying in ${delay}ms (attempt ${attempt + 1}/${maxRetries + 1})...`);
+                                await new Promise(resolve => setTimeout(resolve, delay));
+                                continue; // Retry
+                            }
+                            
+                            // Last attempt failed, throw formatted error
+                            throw lastError;
+                        }
+
+                        // Handle other errors
+                        throw new Error(`API request failed: ${response.status} ${response.statusText}. ${errorText}`);
+                    }
+
+                    const data = await response.json();
+                    if (data.choices && data.choices[0] && data.choices[0].message) {
+                        return res.status(200).json({ success: true, lyrics: data.choices[0].message.content });
+                    }
+                    throw new Error('Invalid API response format: missing choices or message');
+                } catch (fetchError) {
+                    clearTimeout(timeoutId);
+                    
+                    if (fetchError.name === 'AbortError') {
+                        throw new Error('Request timeout: The AI generation took too long. Please try again.');
+                    }
+                    if (fetchError.message.includes('ECONNREFUSED') || fetchError.message.includes('ENOTFOUND')) {
+                        throw new Error('Network error: Unable to connect to AI service. Please check your connection and try again.');
+                    }
+                    
+                    // If it's a rate limit error and we haven't exhausted retries, continue to retry
+                    if (fetchError.message.includes('429') || fetchError.message.includes('rate-limited')) {
+                        lastError = fetchError;
+                        if (attempt < maxRetries) {
+                            const delay = baseDelay * Math.pow(2, attempt);
+                            console.log(`Rate limited. Retrying in ${delay}ms (attempt ${attempt + 1}/${maxRetries + 1})...`);
+                            await new Promise(resolve => setTimeout(resolve, delay));
+                            continue;
+                        }
+                    }
+                    
+                    throw fetchError;
+                }
+            } catch (attemptError) {
+                // If this is the last attempt, throw the error
+                if (attempt === maxRetries) {
+                    throw attemptError;
+                }
+                // Otherwise, continue to next retry
+                lastError = attemptError;
             }
-
-            const data = await response.json();
-            if (data.choices && data.choices[0] && data.choices[0].message) {
-                return res.status(200).json({ success: true, lyrics: data.choices[0].message.content });
-            }
-            throw new Error('Invalid API response format: missing choices or message');
-        } catch (fetchError) {
-            clearTimeout(timeoutId);
-            console.error('Fetch error:', fetchError.name, fetchError.message);
-            if (fetchError.name === 'AbortError') {
-                throw new Error('Request timeout: The AI generation took too long. Please try again.');
-            }
-            if (fetchError.message.includes('ECONNREFUSED') || fetchError.message.includes('ENOTFOUND')) {
-                throw new Error('Network error: Unable to connect to AI service. Please check your connection and try again.');
-            }
-            throw fetchError;
         }
+
+        // If we get here, all retries failed
+        throw lastError || new Error('Failed to generate lyrics after multiple attempts.');
     } catch (error) {
         console.error('Error in generate-prompt API:', error);
         console.error('Error stack:', error.stack);
